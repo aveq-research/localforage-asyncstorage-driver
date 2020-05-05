@@ -7,6 +7,9 @@
   "auto-changelog": {
     "commitLimit": false
   },
+  "files": [
+    "src"
+  ],
   "scripts": {
     "test": "TERM=dumb jest",
     "version": "npx auto-changelog -p && git add CHANGELOG.md",
