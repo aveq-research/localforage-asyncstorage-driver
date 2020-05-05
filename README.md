@@ -1,8 +1,16 @@
 # localforage-asyncstorage-driver
 
-This project is maintained by the wonderful [AVEQ](https://aveq.info) team.
+[![npm version](https://badge.fury.io/js/%40aveq-research%2Flocalforage-asyncstorage-driver.svg)](https://badge.fury.io/js/%40aveq-research%2Flocalforage-asyncstorage-driver)
 
 This Library contains a driver which enables to use [localforage](https://github.com/localForage/localForage) for React-Native's [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage).
+
+## Setup
+
+Simply install the driver via NPM:
+
+`npm i --save @aveq-research/localforage-asyncstorage-driver`
+
+If not done yet, make sure to have the appropriate peer dependencies (`react` resp. `react-native`) to be installed.
 
 ## Usage
 
@@ -25,4 +33,4 @@ After that you may use localforage as you know it already. For further questions
 ## License
 
 This driver is distributed under
-MIT License, see [LICENSE](https://github.com/aveq-research/localforage-asyncstorage-driver/blob/master/LICENSE).
+MIT License (see [LICENSE](https://github.com/aveq-research/localforage-asyncstorage-driver/blob/master/LICENSE)) and maintained by the wonderful [AVEQ](https://aveq.info) team.
