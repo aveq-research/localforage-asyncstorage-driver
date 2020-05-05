@@ -1,0 +1,21 @@
+{
+  "name": "@aveq/localforage-asyncstorage-driver",
+  "version": "0.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "TERM=dumb jest",
+    "release": "np"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.9.0"
+  },
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "jest-cli": "^25.4.0",
+    "localforage": "^1.7.3",
+    "np": "^6.2.2",
+    "react": "16.11.0",
+    "react-native": "0.62.0"
+  }
+}
