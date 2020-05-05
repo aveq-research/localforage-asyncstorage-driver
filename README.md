@@ -21,3 +21,7 @@ await localforage.setDriver(driver._driver);
 ```
 
 After that you may use localforage as you know it already. For further questions concerning the localforage API, lookup https://github.com/localForage/localForage
+
+## License
+
+MIT (see LICENSE)
