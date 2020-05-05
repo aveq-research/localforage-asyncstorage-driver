@@ -1,6 +1,6 @@
 # localforage-asyncstorage-driver
 
-This project is maintained by the wonderful AVEQ team.
+This project is maintained by the wonderful [AVEQ](https://aveq.info) team.
 
 This Library contains a driver which enables to use [localforage](https://github.com/localForage/localForage) for React-Native's [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage).
 
@@ -24,4 +24,5 @@ After that you may use localforage as you know it already. For further questions
 
 ## License
 
-MIT (see LICENSE)
+This driver is distributed under
+MIT License, see [LICENSE](https://github.com/aveq-research/localforage-asyncstorage-driver/blob/master/LICENSE).
