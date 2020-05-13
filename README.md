@@ -25,7 +25,7 @@ Working Code Example:
 ```javascript
 const driver = driverWithoutSerialization();
 await localforage.defineDriver(driver);
-await localforage.setDriver(driver._driver);
+await localforage.setDriver(driver._driver); // i.e. "rnAsyncStorageWrapper"
 ```
 
 After that you may use localforage as you know it already. For further questions concerning the localforage API, lookup https://github.com/localForage/localForage
