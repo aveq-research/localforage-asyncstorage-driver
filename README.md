@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/%40aveq-research%2Flocalforage-asyncstorage-driver.svg)](https://badge.fury.io/js/%40aveq-research%2Flocalforage-asyncstorage-driver)
 
-This Library contains a driver which enables to use [localforage](https://github.com/localForage/localForage) for React-Native's [AsyncStorage](https://facebook.github.io/react-native/docs/asyncstorage).
+This Library contains a driver which enables to use [localforage](https://github.com/localForage/localForage) for React-Native's [AsyncStorage](https://github.com/react-native-community/async-storage).
 
 ## Setup
 
