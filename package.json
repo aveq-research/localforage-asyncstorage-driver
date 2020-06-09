@@ -24,7 +24,7 @@
     "jest-cli": "^25.4.0",
     "localforage": "^1.7.3",
     "np": "^6.2.2",
-    "react": "16.11.0",
-    "react-native": "0.62.0"
+    "react": "^16.11.0",
+    "react-native": "^0.62.0"
   }
 }
