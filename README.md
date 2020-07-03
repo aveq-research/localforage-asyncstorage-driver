@@ -23,6 +23,8 @@ It delivers three different methods to create an appropriate driver:
 Working Code Example:
 
 ```javascript
+import { driverWithoutSerialization } from '@aveq-research/localforage-asyncstorage-driver';
+
 const driver = driverWithoutSerialization();
 await localforage.defineDriver(driver);
 await localforage.setDriver(driver._driver); // i.e. "rnAsyncStorageWrapper"
