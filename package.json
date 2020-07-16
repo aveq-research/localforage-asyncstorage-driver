@@ -11,7 +11,8 @@
     "/lib"
   ],
   "scripts": {
-    "test": "TERM=dumb jest",
+    "test": "jest",
+    "test:cover": "jest --collectCoverage",
     "version": "npx auto-changelog -p && git add CHANGELOG.md",
     "release": "npm run build && np",
     "build": "babel src -d lib"

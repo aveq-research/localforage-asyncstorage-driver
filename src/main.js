@@ -284,7 +284,7 @@ const defaultDriver = {
       await this.ready();
 
       const dbInfo     = this._dbInfo;
-      const allKeys    = AsyncStorage.getAllKeys();
+      const allKeys    = await AsyncStorage.getAllKeys();
       const driverKeys = [];
 
       for (const key of allKeys) {
