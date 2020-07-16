@@ -1,6 +1,6 @@
 {
   "name": "@aveq-research/localforage-asyncstorage-driver",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "lib/main.js",
   "license": "MIT",
   "homepage": "https://github.com/aveq-research/localforage-asyncstorage-driver#readme",
