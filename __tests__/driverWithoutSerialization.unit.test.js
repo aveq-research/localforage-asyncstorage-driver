@@ -77,3 +77,17 @@ describe('keys()', () => {
     expect(keys).toStrictEqual([ 'test1', 'test2' ]);
   });
 });
+
+describe('removeItem()', () => {
+  it('removes an already existing item from storage', async () => {
+    await testStorage.setItem('existingKey', 'existingValue');
+    await testStorage.removeItem('existingKey');
+    expect(await testStorage.getItem('existingKey')).toBeNull();
+    expect(await AsyncStorage.getItem('existingKey')).toBeNull();
+  });
+
+  it('does nothing when removing a non-existing key', async () => {
+    await testStorage.removeItem('nonExistingKey');
+    expect(await testStorage.getItem('nonExistingKey')).toBeNull();
+  });
+});

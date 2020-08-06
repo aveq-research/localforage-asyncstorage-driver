@@ -91,3 +91,33 @@ describe('setItem()/getItem()', () => {
     expect(storageValue.test).toBeUndefined();
   });
 });
+
+describe('keys()', () => {
+  it('returns an empty string, if nothing is in the store', async () => {
+    const keys = await testStorage.keys();
+    expect(keys).toBeDefined();
+    expect(Array.isArray(keys)).toBe(true);
+    expect(keys.length).toBe(0);
+  });
+
+  it('returns all stored keys without keyPrefix', async () => {
+    await testStorage.setItem('test1', 'valueOfTest1');
+    await testStorage.setItem('test2', 'valueOfTest2');
+    const keys = await testStorage.keys();
+    expect(keys).toStrictEqual([ 'test1', 'test2' ]);
+  });
+});
+
+describe('removeItem()', () => {
+  it('removes an already existing item from storage', async () => {
+    await testStorage.setItem('existingKey', 'existingValue');
+    await testStorage.removeItem('existingKey');
+    expect(await testStorage.getItem('existingKey')).toBeNull();
+    expect(await AsyncStorage.getItem('existingKey')).toBeNull();
+  });
+
+  it('does nothing when removing a non-existing key', async () => {
+    await testStorage.removeItem('nonExistingKey');
+    expect(await testStorage.getItem('nonExistingKey')).toBeNull();
+  });
+});

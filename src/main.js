@@ -222,8 +222,8 @@ const defaultDriver = {
   removeItem: function(key, callback) {
     return _withCallback(callback, async () => {
       key = String(key);
-      await this._context.ready();
-      return AsyncStorage.removeItem(`${this._dbInfo.keyPrefix}${key}`);
+      await this.ready();
+      await AsyncStorage.removeItem(`${this._dbInfo.keyPrefix}${key}`);
     });
   },
 
@@ -259,7 +259,7 @@ const defaultDriver = {
    */
   length: function(callback) {
     return _withCallback(callback, async () => {
-      const keys   = await this.keys();
+      const keys = await this.keys();
       return keys.length;
     });
   },
