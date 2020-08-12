@@ -37,35 +37,36 @@ function _getKeyPrefix(options, defaultConfig) {
   return keyPrefix;
 }
 
-async function _iterate(dbInfo, keyPrefix, keys, iterator, iterationNumber) {
-  if (keys.length <= 0) {
+async function _iterate(dbInfo, keys, iterator, iterationNumber) {
+  const key = keys.shift();
+  if (key === undefined) {
     return;
   }
 
-  const key = keys.slice();
-  if (key.indexOf(keyPrefix) !== 0) {
-    return _iterate(keyPrefix, keys, iterator, iterationNumber);
+  const keyPrefix = dbInfo.keyPrefix;
+  if (key.indexOf(keyPrefix) === 0) {
+    const serializedValue = await AsyncStorage.getItem(key);
+
+    // If a result was found, parse it from the serialized
+    // string into a JS object. If result isn't truthy, the
+    // key is likely undefined and we'll pass it straight
+    // to the iterator.
+    const value = serializedValue && dbInfo.serializer
+        ? dbInfo.serializer.deserialize(serializedValue)
+        : serializedValue;
+
+    const itVal = iterator(
+        value,
+        key.substring(keyPrefix.length),
+        iterationNumber++
+    );
+
+    if (itVal !== undefined) {
+      return itVal;
+    }
   }
 
-  const serializedValue = await AsyncStorage.getItem(key);
-
-  // If a result was found, parse it from the serialized
-  // string into a JS object. If result isn't truthy, the
-  // key is likely undefined and we'll pass it straight
-  // to the iterator.
-  const value = serializedValue
-    ? dbInfo.serializer.deserialize(serializedValue)
-    : serializedValue;
-
-  const itVal = iterator(
-    value,
-    key.substring(keyPrefix.length),
-    iterationNumber++
-  );
-
-  if (itVal !== undefined) {
-    return itVal;
-  }
+  return _iterate(dbInfo, keys, iterator, iterationNumber);
 }
 
 const defaultDriver = {
@@ -133,11 +134,8 @@ const defaultDriver = {
     return _withCallback(callback, async () => {
       await this.ready();
 
-      const dbInfo    = this._dbInfo;
-      const keyPrefix = dbInfo.keyPrefix;
-      const allKeys   = await AsyncStorage.getAllKeys();
-
-      return _iterate(keyPrefix, allKeys, iterator, 0);
+      const allKeys = await AsyncStorage.getAllKeys();
+      return _iterate(this._dbInfo, allKeys, iterator, 0);
     });
   },
 

@@ -78,3 +78,22 @@ describe('removeItem()', () => {
     expect(await testStorage.getItem('nonExistingKey')).toBeNull();
   });
 });
+
+describe('iterate()', () => {
+  beforeEach(async () => {
+    await testStorage.setItem('foo', 'bar');
+    await testStorage.setItem('bar', 'foo');
+  });
+
+  it('iterates over all items in the store', async () => {
+    const items = [];
+    await testStorage.iterate((value, key, iterationNumber) => {
+      items.push([ value, key, iterationNumber ]);
+    });
+
+    expect(items).toStrictEqual([
+      ['bar', 'foo', 0],
+      ['foo', 'bar', 1],
+    ]);
+  });
+});
