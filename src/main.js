@@ -316,8 +316,11 @@ const defaultDriver = {
 };
 
 function driverWithSerialization(serializer) {
-  const driver = Object.assign({}, defaultDriver);
-  const orgInitFunctionBody = defaultDriver._initStorage;
+  const driver = Object.assign({}, defaultDriver, {
+    _driver: `${defaultDriver._driver}-with${serializer === undefined ? 'DefaultSerializer' : (serializer === null ? 'outSerializer' : 'Serializer')}`,
+  });
+
+  const orgInitFunctionBody = driver._initStorage;
   driver._initStorage = function(options) {
     return orgInitFunctionBody.apply(this, [serializer, options]);
   };
