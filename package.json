@@ -2,13 +2,15 @@
   "name": "@aveq-research/localforage-asyncstorage-driver",
   "version": "1.1.5",
   "main": "lib/main.js",
+  "types": "types/main.d.ts",
   "license": "MIT",
   "homepage": "https://github.com/aveq-research/localforage-asyncstorage-driver#readme",
   "auto-changelog": {
     "commitLimit": false
   },
   "files": [
-    "/lib"
+    "/lib",
+    "/types"
   ],
   "repository": {
     "type": "git",
@@ -21,19 +23,23 @@
     "release": "npm run build && np",
     "build": "babel src -d lib"
   },
-  "dependencies": {
-    "@react-native-community/async-storage": "^1.9.0"
+  "peerDependencies": {
+    "@react-native-community/async-storage": "*",
+    "localforage": "*",
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@react-native-community/async-storage": "^1.9.0",
     "auto-changelog": "^2.0.0",
     "jest": "^25.4.0",
     "jest-cli": "^25.4.0",
     "localforage": "^1.7.3",
     "np": "^6.2.2",
     "react": "^16.11.0",
-    "react-native": "^0.62.0"
+    "react-native": "^0.63.3"
   }
 }
