@@ -97,3 +97,29 @@ describe('iterate()', () => {
     ]);
   });
 });
+
+describe('clear()', () => {
+  beforeEach(async () => {
+    await testStorage.setItem('foo', 'bar');
+    await testStorage.setItem('bar', 'foo');
+  });
+
+  it('empties the storage', async () => {
+    await testStorage.clear();
+    const allKeys = await AsyncStorage.getAllKeys();
+    expect(allKeys.length).toBe(0);
+  });
+});
+
+describe('dropInstance()', () => {
+  beforeEach(async () => {
+    await testStorage.setItem('foo', 'bar');
+    await testStorage.setItem('bar', 'foo');
+  });
+
+  it('empties the storage', async () => {
+    await testStorage.dropInstance();
+    const allKeys = await AsyncStorage.getAllKeys();
+    expect(allKeys.length).toBe(0);
+  });
+});

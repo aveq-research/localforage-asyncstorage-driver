@@ -336,7 +336,6 @@ function driverWithoutSerialization() {
   return driverWithSerialization(null);
 }
 
-// noinspection JSUnusedGlobalSymbols
 module.exports = {
  driverWithoutSerialization,
  driverWithSerialization,
