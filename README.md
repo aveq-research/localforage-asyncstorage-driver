@@ -4,6 +4,10 @@
 
 This Library contains a driver which enables to use [localforage](https://github.com/localForage/localForage) for React-Native's [AsyncStorage](https://github.com/react-native-community/async-storage).
 
+## Peer Dependencies
+
+Please note! With the switch to v2.0.0 `@react-native-community/async-storage` became a peer dependency!!
+
 ## Setup
 
 Simply install the driver via NPM:
