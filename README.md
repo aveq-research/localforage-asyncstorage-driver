@@ -26,12 +26,21 @@ It delivers three different methods to create an appropriate driver:
 
 Working Code Example:
 
-```javascript
+```js
 import { driverWithoutSerialization } from '@aveq-research/localforage-asyncstorage-driver';
 
 const driver = driverWithoutSerialization();
 await localforage.defineDriver(driver);
 await localforage.setDriver(driver._driver); // i.e. "rnAsyncStorageWrapper"
+```
+
+Alternatively with instance usage:
+
+```js
+import { driverWithoutSerialization } from '@aveq-research/localforage-asyncstorage-driver';
+
+const driver = driverWithoutSerialization();
+const instance = localforage.createInstance({ driver });
 ```
 
 After that you may use localforage as you know it already. For further questions concerning the localforage API, lookup https://github.com/localForage/localForage
