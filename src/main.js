@@ -7,7 +7,7 @@
  *  structures of both implementations.
  */
 
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 async function _withCallback(callback, promise) {
   try {
